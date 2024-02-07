@@ -78,35 +78,34 @@ const RickAndMortySuggestionBox: React.FC<RickAndMortySuggestionBoxProps> = ({
     );
   };
 
-  const handleKeyDown = (event: KeyboardEvent) => {
-    event.preventDefault();
-    switch (event.keyCode) {
-      case 38:
-        setSelectedIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : 0));
-        break;
-      case 40:
-        setSelectedIndex((prevIndex) =>
-          prevIndex < rickAndMortyList.length - 1
-            ? prevIndex + 1
-            : rickAndMortyList.length - 1
-        );
-        break;
-      case 9:
-        setSelectedIndex((prevIndex) =>
-          prevIndex < rickAndMortyList.length - 1
-            ? prevIndex + 1
-            : rickAndMortyList.length - 1
-        );
-        break;
-      case 13:
-        handleEnterKeyDown(rickAndMortyList[selectedIndex]);
-        break;
-      default:
-        break;
-    }
-  };
-
   useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      event.preventDefault();
+      switch (event.keyCode) {
+        case 38:
+          setSelectedIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : 0));
+          break;
+        case 40:
+          setSelectedIndex((prevIndex) =>
+            prevIndex < rickAndMortyList.length - 1
+              ? prevIndex + 1
+              : rickAndMortyList.length - 1
+          );
+          break;
+        case 9:
+          setSelectedIndex((prevIndex) =>
+            prevIndex < rickAndMortyList.length - 1
+              ? prevIndex + 1
+              : rickAndMortyList.length - 1
+          );
+          break;
+        case 13:
+          handleEnterKeyDown(rickAndMortyList[selectedIndex]);
+          break;
+        default:
+          break;
+      }
+    };
     window.addEventListener("keydown", handleKeyDown);
 
     if (enterPressed) {
