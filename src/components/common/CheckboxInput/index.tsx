@@ -1,4 +1,3 @@
-
 import React from "react";
 
 import styles from "./styles.module.css";
@@ -8,11 +7,16 @@ interface CheckboxInputProps {
   name: string;
   checked?: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  children?: React.ReactNode; 
+  children?: React.ReactNode;
 }
 
-const CheckboxInput: React.FC<CheckboxInputProps> = ({ id, name, children, onChange, checked = false }) => {
-  
+const CheckboxInput: React.FC<CheckboxInputProps> = ({
+  id,
+  name,
+  children,
+  onChange,
+  checked = false,
+}) => {
   return (
     <div className={styles.wrapper}>
       <input
@@ -21,6 +25,7 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({ id, name, children, onCha
         name={name}
         checked={checked}
         onChange={onChange}
+        tabIndex={-1}
       />
       <label htmlFor={`checkbox-${id}`}>{children}</label>
     </div>

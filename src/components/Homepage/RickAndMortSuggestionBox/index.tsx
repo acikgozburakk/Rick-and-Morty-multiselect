@@ -81,7 +81,6 @@ const RickAndMortySuggestionBox: React.FC<RickAndMortySuggestionBoxProps> = ({
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      event.preventDefault();
       switch (event.keyCode) {
         case 38:
           setSelectedIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : 0));
