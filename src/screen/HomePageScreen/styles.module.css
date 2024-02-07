@@ -1,0 +1,11 @@
+.wrapper {
+  @apply flex flex-col items-center mt-10 h-screen;
+}
+
+.boxWrapper {
+  @apply absolute mt-3 top-[100%];
+}
+
+.contentWrapper {
+  @apply relative
+}

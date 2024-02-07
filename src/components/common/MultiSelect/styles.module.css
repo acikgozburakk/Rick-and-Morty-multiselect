@@ -1,0 +1,27 @@
+.buttonWrapper {
+  @apply px-2 py-1 mr-2 mb-[5px] bg-lavenderMist rounded-lg;
+}
+
+.buttonCloseButton {
+  @apply ml-2 px-[5px] text-sm  bg-cadetGrey text-white rounded-md;
+}
+
+.inputClass {
+  @apply outline-none w-auto ml-2;
+}
+
+.wrapper {
+  @apply w-[310px] flex flex-wrap border border-cadetGrey rounded-lg p-2 relative;
+}
+
+.icon {
+  @apply absolute right-1 top-2 cursor-pointer transition duration-300;
+}
+
+.iconRotate {
+  @apply rotate-180 transition duration-300;
+}
+
+.nameClass {
+  @apply text-sm;
+}

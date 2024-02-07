@@ -1,0 +1,64 @@
+.listWrapper {
+  @apply flex flex-col items-start border border-cadetGrey rounded-lg max-h-[300px] overflow-y-auto;
+}
+
+.labelImage {
+  @apply w-[40px] h-[40px] rounded-lg;
+}
+
+.labelInfo {
+  @apply flex flex-col ml-3;
+}
+.labelWrapper {
+  @apply flex items-center justify-center ml-3;
+}
+
+.episodeCount {
+  @apply text-blueGrey text-sm;
+}
+
+.listItem {
+  @apply w-full flex py-[6px] pl-3 pr-5;
+}
+
+.listItem:not(:nth-child(1)) {
+  @apply border-t border-cadetGrey;
+}
+
+.listWrapper::-webkit-scrollbar {
+  width: 12px;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+}
+
+.listWrapper::-webkit-scrollbar-thumb {
+  background-color: theme("colors.cadetGrey");
+  border-radius: 10px;
+}
+
+.listWrapper::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.loadingWrapper {
+  @apply w-[200px] h-[200px] flex items-center justify-center border border-cadetGrey rounded-lg  overflow-y-auto;
+}
+
+.wrapper {
+  animation: fadeInDown 0.5s ease-out forwards;
+}
+
+.message {
+  @apply p-[30px] text-sm
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
