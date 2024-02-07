@@ -12,7 +12,8 @@ const config: Config = {
       colors: {
         lavenderMist:"#E2E8F0",
         cadetGrey:"#94A3B8",
-      blueGrey:   "#64748B"  }
+      blueGrey:   "#64748B",
+    platinium:"#E3E3E3"  }
     },
   },
   plugins: [],

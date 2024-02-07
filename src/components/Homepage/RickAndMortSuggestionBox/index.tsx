@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
+import classNames from "classnames";
 
 import CheckboxInput from "@/components/common/CheckboxInput";
 import LoadingSpinner from "@/components/common/Loading";
@@ -140,38 +141,44 @@ const RickAndMortySuggestionBox: React.FC<RickAndMortySuggestionBoxProps> = ({
     <div className={styles.wrapper}>
       <ul ref={listRef} className={styles.listWrapper} style={{ width: width }}>
         {rickAndMortyList.length > 0 ? (
-          rickAndMortyList.map((item, index) => (
-            <li
-              key={item.id}
-              className={styles.listItem}
-              style={{ opacity: selectedIndex === index ? "0.5" : "1" }}
-            >
-              <CheckboxInput
-                id={item.id}
-                name={item.name}
-                onChange={(event) => handleCheckboxChange(event, item)}
-                checked={selectedData.some(
-                  (selected) => selected.id === item.id
-                )}
+          rickAndMortyList.map((item, index) => {
+            const listItemClass = classNames({
+              [styles.listItem]: true,
+              [styles.activeListItem]: selectedIndex === index,
+            });
+            return (
+              <li
+                onMouseEnter={() => setSelectedIndex(index)}
+                key={item.id}
+                className={listItemClass}
               >
-                <div className={styles.labelWrapper}>
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className={styles.labelImage}
-                  />
-                  <div className={styles.labelInfo}>
-                    <span className={styles.name}>
-                      {highlightMatch(item.name)}
-                    </span>
-                    <span className={styles.episodeCount}>
-                      {item.episode.length} Episodes
-                    </span>
+                <CheckboxInput
+                  id={item.id}
+                  name={item.name}
+                  onChange={(event) => handleCheckboxChange(event, item)}
+                  checked={selectedData.some(
+                    (selected) => selected.id === item.id
+                  )}
+                >
+                  <div className={styles.labelWrapper}>
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className={styles.labelImage}
+                    />
+                    <div className={styles.labelInfo}>
+                      <span className={styles.name}>
+                        {highlightMatch(item.name)}
+                      </span>
+                      <span className={styles.episodeCount}>
+                        {item.episode.length} Episodes
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </CheckboxInput>
-            </li>
-          ))
+                </CheckboxInput>
+              </li>
+            );
+          })
         ) : (
           <div className={styles.message}>
             {message ||
